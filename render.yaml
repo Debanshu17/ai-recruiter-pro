@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: ai-resume-backend
+    env: python
+    plan: free
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: AI_PROVIDER
+        value: gemini
+      - key: FRONTEND_URL
+        value: "*" # Change this to your frontend URL in production
+      - key: UPLOAD_DIR
+        value: /data/uploads
+    disk:
+      name: resume-data
+      mountPath: /data
+      sizeGB: 1
+
+  - type: web
+    name: ai-resume-frontend
+    env: static
+    plan: free
+    rootDir: frontend
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: "./dist"
