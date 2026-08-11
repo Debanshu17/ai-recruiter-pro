@@ -38,7 +38,7 @@ export default function CompareCandidates() {
   return (
     <div>
       <div className="mb-4">
-        <Link to={`/jobs/${jobId}`} className="btn btn-secondary"><ArrowLeft size={16} /> Back to Job</Link>
+        <Link to={`/jobs/${jobId}`} className="button-secondary"><ArrowLeft size={16} /> Back to Job</Link>
       </div>
       
       <h1>Compare Candidates</h1>

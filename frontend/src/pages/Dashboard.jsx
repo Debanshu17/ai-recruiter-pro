@@ -17,41 +17,41 @@ export default function Dashboard() {
       <h1>Dashboard</h1>
       
       <div className="grid grid-cols-4">
-        <div className="card">
+        <div className="feature-card">
           <div className="flex justify-between items-center mb-4">
-            <h3 style={{margin: 0, color: 'var(--text-secondary)'}}>Total Jobs</h3>
+            <h3 style={{margin: 0, color: 'var(--muted)'}}>Total Jobs</h3>
             <Briefcase color="var(--primary-color)" />
           </div>
           <div style={{fontSize: '2rem', fontWeight: '700'}}>{stats.total_jobs}</div>
         </div>
         
-        <div className="card">
+        <div className="feature-card">
           <div className="flex justify-between items-center mb-4">
-            <h3 style={{margin: 0, color: 'var(--text-secondary)'}}>Candidates</h3>
+            <h3 style={{margin: 0, color: 'var(--muted)'}}>Candidates</h3>
             <Users color="#3b82f6" />
           </div>
           <div style={{fontSize: '2rem', fontWeight: '700'}}>{stats.total_candidates}</div>
         </div>
         
-        <div className="card">
+        <div className="feature-card">
           <div className="flex justify-between items-center mb-4">
-            <h3 style={{margin: 0, color: 'var(--text-secondary)'}}>Shortlisted</h3>
-            <CheckCircle color="var(--success-color)" />
+            <h3 style={{margin: 0, color: 'var(--muted)'}}>Shortlisted</h3>
+            <CheckCircle color="var(--success)" />
           </div>
           <div style={{fontSize: '2rem', fontWeight: '700'}}>{stats.shortlisted}</div>
         </div>
         
-        <div className="card">
+        <div className="feature-card">
           <div className="flex justify-between items-center mb-4">
-            <h3 style={{margin: 0, color: 'var(--text-secondary)'}}>Rejected</h3>
-            <XCircle color="var(--danger-color)" />
+            <h3 style={{margin: 0, color: 'var(--muted)'}}>Rejected</h3>
+            <XCircle color="var(--error)" />
           </div>
           <div style={{fontSize: '2rem', fontWeight: '700'}}>{stats.rejected}</div>
         </div>
       </div>
       
       <div className="mt-4">
-        <Link to="/jobs/create" className="btn btn-primary">Create New Job</Link>
+        <Link to="/jobs/create" className="button-primary">Create New Job</Link>
       </div>
     </div>
   );

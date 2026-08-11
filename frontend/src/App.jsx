@@ -43,8 +43,8 @@ function App() {
             <Route path="/jobs/:id" element={<JobDetail />} />
             <Route path="/candidates/:id" element={<CandidateDetail />} />
             <Route path="/compare" element={<CompareCandidates />} />
-            <Route path="/candidates" element={<div className="card"><h1>Candidates</h1><p>Select a job to view candidates.</p></div>} />
-            <Route path="/settings" element={<div className="card"><h1>Settings</h1><p>System configuration.</p></div>} />
+            <Route path="/candidates" element={<div className="feature-card"><h1>Candidates</h1><p>Select a job to view candidates.</p></div>} />
+            <Route path="/settings" element={<div className="feature-card"><h1>Settings</h1><p>System configuration.</p></div>} />
           </Routes>
         </main>
       </div>

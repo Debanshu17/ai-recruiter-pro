@@ -28,44 +28,44 @@ export default function CreateJob() {
   };
 
   return (
-    <div className="card" style={{maxWidth: '800px'}}>
+    <div className="feature-card" style={{maxWidth: '800px'}}>
       <h1>Create New Job</h1>
       <form onSubmit={handleSubmit} className="grid grid-cols-2">
         <div className="form-group">
           <label className="form-label">Job Title</label>
-          <input name="title" className="form-input" required onChange={handleChange} />
+          <input name="title" className="text-input" required onChange={handleChange} />
         </div>
         <div className="form-group">
           <label className="form-label">Department</label>
-          <input name="department" className="form-input" required onChange={handleChange} />
+          <input name="department" className="text-input" required onChange={handleChange} />
         </div>
         <div className="form-group">
           <label className="form-label">Location</label>
-          <input name="location" className="form-input" required onChange={handleChange} />
+          <input name="location" className="text-input" required onChange={handleChange} />
         </div>
         <div className="form-group">
           <label className="form-label">Experience Required</label>
-          <input name="experience_required" className="form-input" placeholder="e.g. 3-5 years" required onChange={handleChange} />
+          <input name="experience_required" className="text-input" placeholder="e.g. 3-5 years" required onChange={handleChange} />
         </div>
         <div className="form-group" style={{gridColumn: '1 / -1'}}>
           <label className="form-label">Job Description</label>
-          <textarea name="description" className="form-input" rows="4" required onChange={handleChange}></textarea>
+          <textarea name="description" className="text-input" rows="4" required onChange={handleChange}></textarea>
         </div>
         <div className="form-group" style={{gridColumn: '1 / -1'}}>
           <label className="form-label">Required Skills (comma separated)</label>
-          <input name="required_skills" className="form-input" required onChange={handleChange} />
+          <input name="required_skills" className="text-input" required onChange={handleChange} />
         </div>
         <div className="form-group" style={{gridColumn: '1 / -1'}}>
           <label className="form-label">Mandatory Requirements (comma separated)</label>
-          <input name="mandatory_requirements" className="form-input" placeholder="Skills the candidate MUST have" onChange={handleChange} />
+          <input name="mandatory_requirements" className="text-input" placeholder="Skills the candidate MUST have" onChange={handleChange} />
         </div>
         <div className="form-group">
           <label className="form-label">Threshold (%)</label>
-          <input name="threshold" type="number" className="form-input" min="0" max="100" value={formData.threshold} onChange={handleChange} />
+          <input name="threshold" type="number" className="text-input" min="0" max="100" value={formData.threshold} onChange={handleChange} />
         </div>
         
         <div className="form-group mt-4" style={{gridColumn: '1 / -1'}}>
-          <button type="submit" className="btn btn-primary">Save Job</button>
+          <button type="submit" className="button-primary">Save Job</button>
         </div>
       </form>
     </div>
