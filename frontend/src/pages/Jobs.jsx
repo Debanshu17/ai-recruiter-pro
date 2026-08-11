@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Briefcase, MapPin } from 'lucide-react';
-import { API_URL } from './api';
+import { API_URL } from '../api';
 
 
 export default function Jobs() {

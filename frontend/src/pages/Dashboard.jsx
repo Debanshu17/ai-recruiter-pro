@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Briefcase, Users, CheckCircle, XCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { API_URL } from './api';
+import { API_URL } from '../api';
 
 
 export default function Dashboard() {

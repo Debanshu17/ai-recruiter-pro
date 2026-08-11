@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, FileText, CheckCircle, AlertTriangle, XCircle } from 'lucide-react';
-import { API_URL } from './api';
+import { API_URL } from '../api';
 
 
 export default function CandidateDetail() {

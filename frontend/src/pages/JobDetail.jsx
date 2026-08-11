@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { UploadCloud, CheckCircle, Clock, AlertTriangle } from 'lucide-react';
-import { API_URL } from './api';
+import { API_URL } from '../api';
 
 
 export default function JobDetail() {
