@@ -12,13 +12,9 @@ services:
       - key: AI_PROVIDER
         value: gemini
       - key: FRONTEND_URL
-        value: "*" # Change this to your frontend URL in production
+        value: "*"
       - key: UPLOAD_DIR
-        value: /data/uploads
-    disk:
-      name: resume-data
-      mountPath: /data
-      sizeGB: 1
+        value: ./uploads
 
   - type: web
     name: ai-resume-frontend
