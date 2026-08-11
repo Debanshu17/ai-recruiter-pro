@@ -20,8 +20,8 @@ if "http://localhost:5173" not in CORS_ORIGINS:
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=CORS_ORIGINS,
-    allow_credentials=True,
+    allow_origins=[os.getenv("FRONTEND_URL", "*")],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
