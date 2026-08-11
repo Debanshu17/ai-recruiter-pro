@@ -323,3 +323,12 @@ tr:hover td {
 .upload-zone:hover {
   border-color: var(--primary);
 }
+
+/* Micro Animations */
+.interactive-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.interactive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(20, 20, 19, 0.08);
+}
