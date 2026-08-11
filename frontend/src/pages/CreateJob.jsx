@@ -23,9 +23,15 @@ export default function CreateJob() {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(formData)
       });
-      if(res.ok) navigate('/jobs');
+      if(res.ok) {
+        navigate('/jobs');
+      } else {
+        const errData = await res.text();
+        alert(`Failed to save job! Status: ${res.status}. Error: ${errData}`);
+      }
     } catch(err) {
       console.error(err);
+      alert(`Network Error: Trying to reach ${API_URL}/jobs. Details: ${err.message}`);
     }
   };
 
