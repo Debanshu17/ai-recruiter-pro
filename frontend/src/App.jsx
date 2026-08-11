@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, NavLink, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink, Outlet, Link } from 'react-router-dom';
 import { Briefcase, Users, LayoutDashboard, Settings } from 'lucide-react';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
@@ -13,10 +13,10 @@ function AppLayout() {
     <div className="app-container">
       {/* Sidebar */}
       <aside className="sidebar">
-        <div className="sidebar-logo">
+        <Link to="/" className="sidebar-logo" style={{ textDecoration: 'none' }}>
           <Briefcase size={24} color="var(--primary)" />
           <span>AI Recruiter</span>
-        </div>
+        </Link>
         
         <nav>
           <NavLink to="/dashboard" end className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`}>
