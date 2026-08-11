@@ -15,9 +15,9 @@ export default function JobDetail() {
 
   const fetchJobAndCandidates = async () => {
     try {
-      const jobRes = await fetch(`http://localhost:8000/jobs/${id}`);
+      const jobRes = await fetch(`https://ai-resume-backend-brns.onrender.com/jobs/${id}`);
       setJob(await jobRes.json());
-      const candRes = await fetch(`http://localhost:8000/jobs/${id}/candidates`);
+      const candRes = await fetch(`https://ai-resume-backend-brns.onrender.com/jobs/${id}/candidates`);
       setCandidates(await candRes.json());
     } catch(err) { console.error(err); }
   };
@@ -32,7 +32,7 @@ export default function JobDetail() {
     }
     
     try {
-      const res = await fetch(`http://localhost:8000/jobs/${id}/upload`, {
+      const res = await fetch(`https://ai-resume-backend-brns.onrender.com/jobs/${id}/upload`, {
         method: 'POST',
         body: formData
       });
@@ -46,7 +46,7 @@ export default function JobDetail() {
   const pollBatchStatus = async (batchId) => {
     const interval = setInterval(async () => {
       try {
-        const res = await fetch(`http://localhost:8000/batches/${batchId}`);
+        const res = await fetch(`https://ai-resume-backend-brns.onrender.com/batches/${batchId}`);
         const data = await res.json();
         setBatchStatus(data);
         if (data.status === 'Completed') {

@@ -10,7 +10,7 @@ export default function CompareCandidates() {
 
   useEffect(() => {
     if (jobId) {
-      fetch(`http://localhost:8000/jobs/${jobId}/candidates`)
+      fetch(`https://ai-resume-backend-brns.onrender.com/jobs/${jobId}/candidates`)
         .then(r => r.json())
         .then(data => {
           setCandidates(data);

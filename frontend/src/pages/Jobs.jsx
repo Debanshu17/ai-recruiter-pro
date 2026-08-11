@@ -6,7 +6,7 @@ export default function Jobs() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/jobs')
+    fetch('https://ai-resume-backend-brns.onrender.com/jobs')
       .then(r => r.json())
       .then(data => setJobs(data))
       .catch(console.error);

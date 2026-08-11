@@ -7,7 +7,7 @@ export default function CandidateDetail() {
   const [candidate, setCandidate] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/candidates/${id}`)
+    fetch(`https://ai-resume-backend-brns.onrender.com/candidates/${id}`)
       .then(r => r.json())
       .then(data => setCandidate(data))
       .catch(console.error);
@@ -15,7 +15,7 @@ export default function CandidateDetail() {
 
   const updateStatus = async (status) => {
     try {
-      await fetch(`http://localhost:8000/candidates/${id}/status?status=${status}`, { method: 'PUT' });
+      await fetch(`https://ai-resume-backend-brns.onrender.com/candidates/${id}/status?status=${status}`, { method: 'PUT' });
       setCandidate({...candidate, status});
     } catch(err) { console.error(err); }
   };

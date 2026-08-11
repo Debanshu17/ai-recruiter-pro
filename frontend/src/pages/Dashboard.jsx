@@ -6,7 +6,7 @@ export default function Dashboard() {
   const [stats, setStats] = useState({ total_jobs: 0, total_candidates: 0, shortlisted: 0, rejected: 0 });
 
   useEffect(() => {
-    fetch('http://localhost:8000/analytics')
+    fetch('https://ai-resume-backend-brns.onrender.com/analytics')
       .then(r => r.json())
       .then(data => setStats(data))
       .catch(console.error);

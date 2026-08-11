@@ -16,7 +16,7 @@ export default function CreateJob() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:8000/jobs', {
+      const res = await fetch('https://ai-resume-backend-brns.onrender.com/jobs', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(formData)
