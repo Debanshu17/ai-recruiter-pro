@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, FileText, CheckCircle, AlertTriangle, XCircle } from 'lucide-react';
+import { API_URL } from './api';
+
 
 export default function CandidateDetail() {
   const { id } = useParams();
   const [candidate, setCandidate] = useState(null);
 
   useEffect(() => {
-    fetch(`https://ai-resume-backend-brns.onrender.com/candidates/${id}`)
+    fetch(`\${API_URL}/candidates/${id}`)
       .then(r => r.json())
       .then(data => setCandidate(data))
       .catch(console.error);
@@ -15,7 +17,7 @@ export default function CandidateDetail() {
 
   const updateStatus = async (status) => {
     try {
-      await fetch(`https://ai-resume-backend-brns.onrender.com/candidates/${id}/status?status=${status}`, { method: 'PUT' });
+      await fetch(`\${API_URL}/candidates/${id}/status?status=${status}`, { method: 'PUT' });
       setCandidate({...candidate, status});
     } catch(err) { console.error(err); }
   };

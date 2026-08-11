@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { UploadCloud, CheckCircle, Clock, AlertTriangle } from 'lucide-react';
+import { API_URL } from './api';
+
 
 export default function JobDetail() {
   const { id } = useParams();
@@ -15,9 +17,9 @@ export default function JobDetail() {
 
   const fetchJobAndCandidates = async () => {
     try {
-      const jobRes = await fetch(`https://ai-resume-backend-brns.onrender.com/jobs/${id}`);
+      const jobRes = await fetch(`\${API_URL}/jobs/${id}`);
       setJob(await jobRes.json());
-      const candRes = await fetch(`https://ai-resume-backend-brns.onrender.com/jobs/${id}/candidates`);
+      const candRes = await fetch(`\${API_URL}/jobs/${id}/candidates`);
       setCandidates(await candRes.json());
     } catch(err) { console.error(err); }
   };
@@ -32,7 +34,7 @@ export default function JobDetail() {
     }
     
     try {
-      const res = await fetch(`https://ai-resume-backend-brns.onrender.com/jobs/${id}/upload`, {
+      const res = await fetch(`\${API_URL}/jobs/${id}/upload`, {
         method: 'POST',
         body: formData
       });
@@ -46,7 +48,7 @@ export default function JobDetail() {
   const pollBatchStatus = async (batchId) => {
     const interval = setInterval(async () => {
       try {
-        const res = await fetch(`https://ai-resume-backend-brns.onrender.com/batches/${batchId}`);
+        const res = await fetch(`\${API_URL}/batches/${batchId}`);
         const data = await res.json();
         setBatchStatus(data);
         if (data.status === 'Completed') {

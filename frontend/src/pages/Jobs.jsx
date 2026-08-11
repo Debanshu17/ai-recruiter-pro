@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Briefcase, MapPin } from 'lucide-react';
+import { API_URL } from './api';
+
 
 export default function Jobs() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch('https://ai-resume-backend-brns.onrender.com/jobs')
+    fetch(API_URL + '/jobs')
       .then(r => r.json())
       .then(data => setJobs(data))
       .catch(console.error);

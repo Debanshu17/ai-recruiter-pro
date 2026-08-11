@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { API_URL } from './api';
+
 
 export default function CompareCandidates() {
   const [searchParams] = useSearchParams();
@@ -10,7 +12,7 @@ export default function CompareCandidates() {
 
   useEffect(() => {
     if (jobId) {
-      fetch(`https://ai-resume-backend-brns.onrender.com/jobs/${jobId}/candidates`)
+      fetch(`\${API_URL}/jobs/${jobId}/candidates`)
         .then(r => r.json())
         .then(data => {
           setCandidates(data);

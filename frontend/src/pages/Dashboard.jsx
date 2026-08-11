@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Briefcase, Users, CheckCircle, XCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { API_URL } from './api';
+
 
 export default function Dashboard() {
   const [stats, setStats] = useState({ total_jobs: 0, total_candidates: 0, shortlisted: 0, rejected: 0 });
 
   useEffect(() => {
-    fetch('https://ai-resume-backend-brns.onrender.com/analytics')
+    fetch(API_URL + '/analytics')
       .then(r => r.json())
       .then(data => setStats(data))
       .catch(console.error);

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from './api';
+
 
 export default function CreateJob() {
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ export default function CreateJob() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('https://ai-resume-backend-brns.onrender.com/jobs', {
+      const res = await fetch(API_URL + '/jobs', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(formData)
