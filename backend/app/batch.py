@@ -40,8 +40,8 @@ def process_resume_batch(batch_id: int, job_id: int, file_paths: list[str], file
                 
                 overall_score = round((req_score * 0.4) + (exp_score * 0.3) + (proj_score * 0.2) + (edu_score * 0.1))
                 
-                # Status based on threshold
-                status = "Shortlisted" if overall_score >= job.threshold and match_result["mandatory_met"] else "Rejected"
+                # Status based strictly on threshold as requested
+                status = "Shortlisted" if overall_score >= job.threshold else "Rejected"
                 
                 # 5. Save Candidate
                 candidate = crud.create_candidate(

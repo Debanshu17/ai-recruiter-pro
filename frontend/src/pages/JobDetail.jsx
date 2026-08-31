@@ -19,11 +19,11 @@ export default function JobDetail() {
 
   const fetchJobAndCandidates = async () => {
     try {
-      const jobRes = await fetch(`\${API_URL}/jobs/${id}`);
+      const jobRes = await fetch(`${API_URL}/jobs/${id}`);
       if (!jobRes.ok) throw new Error(`Job fetch failed with status: ${jobRes.status}`);
       setJob(await jobRes.json());
       
-      const candRes = await fetch(`\${API_URL}/jobs/${id}/candidates`);
+      const candRes = await fetch(`${API_URL}/jobs/${id}/candidates`);
       if (!candRes.ok) throw new Error(`Candidates fetch failed with status: ${candRes.status}`);
       setCandidates(await candRes.json());
     } catch(err) { 
