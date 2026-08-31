@@ -15,13 +15,21 @@ export default function JobDetail() {
     fetchJobAndCandidates();
   }, [id]);
 
+  const [error, setError] = useState(null);
+
   const fetchJobAndCandidates = async () => {
     try {
       const jobRes = await fetch(`\${API_URL}/jobs/${id}`);
+      if (!jobRes.ok) throw new Error(`Job fetch failed with status: ${jobRes.status}`);
       setJob(await jobRes.json());
+      
       const candRes = await fetch(`\${API_URL}/jobs/${id}/candidates`);
+      if (!candRes.ok) throw new Error(`Candidates fetch failed with status: ${candRes.status}`);
       setCandidates(await candRes.json());
-    } catch(err) { console.error(err); }
+    } catch(err) { 
+      console.error(err);
+      setError(err.message);
+    }
   };
 
   const handleFileUpload = async (e) => {
@@ -59,7 +67,8 @@ export default function JobDetail() {
     }, 2000);
   };
 
-  if (!job) return <div>Loading...</div>;
+  if (error) return <div className="feature-card m-8"><h2 style={{color: 'var(--error)'}}>Error Loading Job</h2><p>{error}</p><p className="mt-4">Please make sure your backend is running and you have hard-refreshed your browser to clear cache.</p></div>;
+  if (!job) return <div className="m-8">Loading job details...</div>;
 
   return (
     <div>
