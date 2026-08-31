@@ -7,6 +7,7 @@ import CreateJob from './pages/CreateJob';
 import JobDetail from './pages/JobDetail';
 import CandidateDetail from './pages/CandidateDetail';
 import CompareCandidates from './pages/CompareCandidates';
+import Candidates from './pages/Candidates';
 
 function AppLayout() {
   return (
@@ -55,7 +56,7 @@ function App() {
           <Route path="/jobs/:id" element={<JobDetail />} />
           <Route path="/candidates/:id" element={<CandidateDetail />} />
           <Route path="/compare" element={<CompareCandidates />} />
-          <Route path="/candidates" element={<div className="feature-card"><h1>Candidates</h1><p>Select a job to view candidates.</p></div>} />
+          <Route path="/candidates" element={<Candidates />} />
           <Route path="/settings" element={<div className="feature-card"><h1>Settings</h1><p>System configuration.</p></div>} />
         </Route>
       </Routes>
