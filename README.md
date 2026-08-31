@@ -30,7 +30,7 @@ An advanced, AI-powered B2B Recruiting Platform designed to automate candidate s
 
 The platform is fully deployed and accessible via the web. No local installation is required for general usage.
 
-**Live Application**: [AI Recruiter Pro](https://ai-resume-frontend-5tv6.onrender.com)
+**Live Application**: [AI Recruiter Pro](https://tinyurl.com/25rclyzn)
 
 ### Local Development Setup
 
