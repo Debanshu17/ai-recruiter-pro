@@ -8,21 +8,30 @@ export default function CandidateDetail() {
   const { id } = useParams();
   const [candidate, setCandidate] = useState(null);
 
+  const [error, setError] = useState(null);
+
   useEffect(() => {
-    fetch(`\${API_URL}/candidates/${id}`)
-      .then(r => r.json())
+    fetch(`${API_URL}/candidates/${id}`)
+      .then(async (r) => {
+        if (!r.ok) throw new Error(`Fetch failed with status: ${r.status}`);
+        return r.json();
+      })
       .then(data => setCandidate(data))
-      .catch(console.error);
+      .catch(err => {
+        console.error(err);
+        setError(err.message);
+      });
   }, [id]);
 
   const updateStatus = async (status) => {
     try {
-      await fetch(`\${API_URL}/candidates/${id}/status?status=${status}`, { method: 'PUT' });
+      await fetch(`${API_URL}/candidates/${id}/status?status=${status}`, { method: 'PUT' });
       setCandidate({...candidate, status});
     } catch(err) { console.error(err); }
   };
 
-  if (!candidate) return <div>Loading...</div>;
+  if (error) return <div className="feature-card m-8"><h2 style={{color: 'var(--error)'}}>Error Loading Candidate</h2><p>{error}</p></div>;
+  if (!candidate) return <div className="m-8">Loading candidate details...</div>;
 
   const { analysis } = candidate;
 
